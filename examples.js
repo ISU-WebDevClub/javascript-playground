@@ -15,7 +15,28 @@ console.log('After z = 6, z is: ' + z); // z is still 3
 
 // Control structures
 
+if(==){
+   
+}
+   
+if(===){
+   
+}
+
+switch(){
+       
+}
+
+//advanced control
+let someBoolean = false
+//someValue depends on someBoolean
+let someValue = (someBoolean ? "the variable is true" : "the variable is false");
+
 // Functions
+function(){
+    
+}
+
 
 // Modifying the DOM
 
