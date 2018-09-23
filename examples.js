@@ -91,6 +91,6 @@ function getData(action, callback) {
     xhr.send();
 }
 
-getData("", (data) => {
+getData("https://api.spotify.com/v1/albums", (data) => {
     console.log(data);
 });
