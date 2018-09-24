@@ -5,14 +5,14 @@ export default class Dog {
   }
 
   bark() {
-    console.log('Woof!');
+    return 'Woof!';
   }
 
   getDoggyInfo() {
-    console.log('This dog has height ' + this.height + ' and weight ' + this.weight);
+    return 'This dog has height ' + this.height + ' and weight ' + this.weight;
   }
 }
 
 export function printAlphabet() {
-  console.log('abcdefghijklmnopqrstuvwxyz');
+  return 'abcdefghijklmnopqrstuvwxyz';
 }
