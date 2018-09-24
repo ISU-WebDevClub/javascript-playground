@@ -61,6 +61,27 @@ let someValue = (2 > 1 ? "the condition is true" : "the condition is false");
 console.log(someValue);
 
 /**
+ * Loops
+ */
+
+ //for loops
+ for(let i = 0; i < 10; i++){//best used when the amount of iterations is known easily
+    console.log(i);
+ }
+
+let values = [10, 3, 10, 34, 23, 1, 5434];
+for (value in values) { 
+    console.log(); 
+}
+
+ //while loops
+let num = 1;
+ while(num < 10){//best used when the amount of iterations is not known easily
+    console.log(num);
+    num++;
+ }
+
+/**
  * Functions
  */
 
@@ -103,8 +124,7 @@ console.log(numbers); // Original array is not changed
  */
 
 let element = document.getElementById("subtitle");
-//element.style.backgroundColor = "red";
-element.innerHTML = "This is some new html inside an element";
+element.innerHTML = "This is a new subtitle!!";
 
 /**
  * Sending and receiving data
@@ -114,21 +134,27 @@ element.innerHTML = "This is some new html inside an element";
 // does not work if accessed locally as in file:// or c://
 function getData(action, callback) {
     let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        //give the response back for use
-        callback(xhr.responseText);
+
+    xhr.onload = () => {//success
+        callback(null,xhr.responseText);
     }
+
+    xhr.onerror = () => {//failed
+        callback("Data Request failed: " + action);
+    }
+    
     xhr.open("get", action, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send();
 }
 
-getData("https://api.spotify.com/v1/albums", (data) => {
-    console.log(data);
-});
+getData("https://swapi.co/api/people/1/", (err, data) => {
+    if(err) throw err;//check for errors first
 
-getData("https://swapi.co/api/people/1/", (data) => {
+    let element = document.getElementById("content");
+    element.innerHTML = "XHR Response: " + data;
     console.log(data);
+
 });
 
 /**
